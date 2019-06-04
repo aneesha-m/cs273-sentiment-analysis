@@ -4,7 +4,7 @@ Usage:
   Directly through this file using __main__
   Using 'test.py' which will run this automatically
 
-Output: 
+Output:
   Generates two cleaned up data csv files within the dataset/drug-data/ folder.
 
 """
@@ -40,10 +40,10 @@ def generate_clean_csv(filename, newfilename):
 
       # changing rating to positive, neutral and negative
       # since the numbers will be pretty pointless overall
-      if row[4] in ['0', '1', '2', '3']:
+      if row[4] in ['0', '1', '2', '3','4']:
         row[4] = 'negative'
-      elif row[4] in ['4','5','6']:
-        row[4] = 'neutral'
+      # elif row[4] in ['4','5','6']:
+      #   row[4] = 'neutral'
       else:
         row[4] = 'positive'
       outputfile.writerow([row[3], row[4]])
@@ -65,6 +65,3 @@ def call_cleanup():
 
 if __name__ == '__main__':
   call_cleanup()
-
-
-
