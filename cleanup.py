@@ -36,7 +36,9 @@ def generate_clean_csv(filename, newfilename):
       # replacing characters in the review
       row[3]   = row[3].replace('&#039;', "'")
       row[3]   = row[3].replace('&amp;', '&')
-      row[3]   = ''.join([c for c in row[3] if c not in punctuation])
+      newpunctuation = punctuation.replace(".", "")
+      #print(newpunctuation)
+      row[3]   = ''.join([c for c in row[3] if c not in newpunctuation])
 
       # changing rating to positive, neutral and negative
       # since the numbers will be pretty pointless overall
